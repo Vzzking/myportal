@@ -1,0 +1,10 @@
+{{define "admin_login_content"}}
+<h1>Вход</h1>
+{{if .Error}}<p class="error">{{.Error}}</p>{{end}}
+<form method="post" action="/admin/login">
+  <label for="password">Пароль</label>
+  <input type="password" id="password" name="password" required autocomplete="current-password">
+  <button type="submit" style="margin-top: 0.5rem;">Войти</button>
+</form>
+<p class="muted"><a href="/">На главную</a></p>
+{{end}}

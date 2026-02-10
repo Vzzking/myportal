@@ -1,0 +1,16 @@
+# Env and secrets — never in image
+.env
+.env.*
+
+# Data and local state
+data/
+
+# Git and CI
+.git
+.github
+
+# Docs and misc
+*.md
+.gitignore
+Dockerfile
+.dockerignore

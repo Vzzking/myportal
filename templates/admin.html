@@ -1,0 +1,25 @@
+{{define "admin_content"}}
+<h1>Заявки на резюме</h1>
+<p><a href="/admin/logout">Выйти</a></p>
+<table style="width:100%; border-collapse: collapse; margin-top: 1rem;">
+  <thead>
+    <tr style="text-align: left; border-bottom: 2px solid #333;">
+      <th style="padding: 0.5rem;">Email</th>
+      <th style="padding: 0.5rem;">Запрошено</th>
+      <th style="padding: 0.5rem;">Подтвердил email</th>
+      <th style="padding: 0.5rem;">Скачал</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{range .Requests}}
+    <tr style="border-bottom: 1px solid #ddd;">
+      <td style="padding: 0.5rem;">{{.Email}}</td>
+      <td style="padding: 0.5rem;">{{.CreatedAt.Format "02.01.2006 15:04"}}</td>
+      <td style="padding: 0.5rem;">{{if .VerifiedAt}}Да{{else}}Нет{{end}}</td>
+      <td style="padding: 0.5rem;">{{if .DownloadedAt}}Да{{else}}Нет{{end}}</td>
+    </tr>
+    {{end}}
+  </tbody>
+</table>
+{{if not .Requests}}<p class="muted">Заявок пока нет.</p>{{end}}
+{{end}}

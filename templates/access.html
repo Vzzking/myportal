@@ -1,0 +1,15 @@
+{{define "access_content"}}
+<h1>Получить доступ к резюме</h1>
+{{if .Error}}<p class="error">{{.Error}}</p>{{end}}
+<form method="post" action="/access">
+  <label for="email">Email для обратной связи</label>
+  <input type="email" id="email" name="email" required placeholder="you@example.com" value="{{.Email}}">
+  <div class="terms-link">
+    <label>
+      <input type="checkbox" name="terms" required {{if .Terms}}checked{{end}}>
+      Я принимаю <a href="/terms" target="_blank" rel="noopener">Условия использования (Terms of Use)</a>: в том числе об авторских правах, о запрете размещения резюме в любых ИИ и использования резюме для обучения ИИ.
+    </label>
+  </div>
+  <button type="submit">Отправить запрос на доступ</button>
+</form>
+{{end}}
